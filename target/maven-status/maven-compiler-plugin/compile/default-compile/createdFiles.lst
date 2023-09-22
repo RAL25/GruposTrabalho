@@ -1,0 +1,10 @@
+com\mycompany\grupostrabalho\Pessoa.class
+com\mycompany\grupostrabalho\Grupo.class
+com\mycompany\grupostrabalho\Telefone.class
+Util\Util.class
+com\mycompany\grupostrabalho\PessoaBean.class
+com\mycompany\grupostrabalho\PessoaBeanLocal.class
+com\mycompany\grupostrabalho\Atuacao.class
+com\mycompany\grupostrabalho\TipoLogradouro.class
+com\mycompany\grupostrabalho\Endereco.class
+com\mycompany\grupostrabalho\PessoaServlet.class
