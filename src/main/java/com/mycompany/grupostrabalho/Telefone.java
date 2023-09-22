@@ -9,12 +9,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
-@Entity(name = "tbl_telefone")
+@Entity
+@Table(name = "tbl_telefone")
 public class Telefone implements Serializable {
 
     private Byte ddd;

@@ -38,10 +38,10 @@ public class PessoaServlet extends HttpServlet {
         
             Pessoa pessoa = new Pessoa();
             
-            pessoa.setNome("Rian");
-            pessoa.setEmail("rian@mail.com");
-            pessoa.setNascimento(LocalDate.of(2001, 10, 29));
-            pessoa.setIdade();
+//            pessoa.setNome("Rian");
+//            pessoa.setEmail("rian@mail.com");
+//            pessoa.setNascimento(LocalDate.of(2001, 10, 29));
+//            pessoa.setIdade();
             
             pessoaBean.salvar(pessoa);
         

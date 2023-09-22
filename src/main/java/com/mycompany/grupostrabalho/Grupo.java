@@ -10,19 +10,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
-@Entity(name = "tbl_grupo")
+@Entity
+@Table(name = "tbl_grupo")
 public class Grupo implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     @Column (length = 65)
     private String nome;
     
     private Boolean ativo;
 
+    
     public Grupo() {
     }
 
@@ -40,9 +47,6 @@ public class Grupo implements Serializable {
     }
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     public Long getId() {
         return id;
