@@ -4,6 +4,7 @@
  */
 package Beans;
 
+import com.mycompany.grupostrabalho.Grupo;
 import com.mycompany.grupostrabalho.Pessoa;
 import javax.ejb.Local;
 
@@ -13,5 +14,6 @@ import javax.ejb.Local;
  */
 @Local
 public interface PessoaBeanLocal {
-    public void salvar(Pessoa pessoa);
+    public void salvarP(Pessoa pessoa);
+    public void salvarG(Grupo grupo);
 }

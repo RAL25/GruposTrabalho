@@ -4,6 +4,7 @@
  */
 package Beans;
 
+import com.mycompany.grupostrabalho.Grupo;
 import com.mycompany.grupostrabalho.Pessoa;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -20,7 +21,12 @@ public class PessoaBean implements PessoaBeanLocal {
     EntityManager entityManager;
 
     @Override
-    public void salvar(Pessoa pessoa) {
+    public void salvarP(Pessoa pessoa) {
         entityManager.persist(pessoa);
+    }
+
+    
+    public void salvarG(Grupo grupo) {
+        entityManager.persist(grupo);
     }
 }

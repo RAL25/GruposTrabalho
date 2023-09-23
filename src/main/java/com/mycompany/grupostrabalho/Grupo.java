@@ -34,10 +34,14 @@ public class Grupo implements Serializable {
 
     private Boolean ativo;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name="tbl_pessoa")
-    private Pessoa pessoa;
-    
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tbl_pessoa")
+    private Pessoa lider;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "tbl_pessoa")
+    private List<Pessoa> membros;
+
     @OneToMany(mappedBy = "grupo",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
@@ -67,12 +71,20 @@ public class Grupo implements Serializable {
         this.ativo = ativo;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Pessoa getLider() {
+        return lider;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setLider(Pessoa lider) {
+        this.lider = lider;
+    }
+
+    public List<Pessoa> getMembros() {
+        return membros;
+    }
+
+    public void setMembros(List<Pessoa> membros) {
+        this.membros = membros;
     }
 
     public List<Atuacao> getAtuacao() {
@@ -85,11 +97,12 @@ public class Grupo implements Serializable {
 
     @Override
     public String toString() {
-        return "Grupo{" + "id=" + id + 
-                ", nome=" + nome + 
-                ", ativo=" + ativo + 
-                ", pessoa=" + pessoa + 
-                ", atuacao=" + atuacao + '}';
+        return "Grupo{" + "id=" + id
+                + ", nome=" + nome
+                + ", ativo=" + ativo
+                + ", lider=" + lider
+                + ", membros=" + membros
+                + ", atuacao=" + atuacao + '}';
     }
-    
+
 }
