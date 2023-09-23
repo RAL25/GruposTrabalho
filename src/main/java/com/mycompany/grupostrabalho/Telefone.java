@@ -19,9 +19,21 @@ import javax.persistence.Table;
 @Table(name = "tbl_telefone")
 public class Telefone implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private Byte ddd;
-    
+
     private Integer numero;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Byte getDdd() {
         return ddd;
@@ -39,24 +51,11 @@ public class Telefone implements Serializable {
         this.numero = numero;
     }
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
-        return "GruposTrabalho.Telefone[ id=" + id + 
-                " ddd="+ddd+
-                " numero="+numero+"]";
+        return "Telefone{" + "id=" + id + 
+                ", ddd=" + ddd + 
+                ", numero=" + numero + '}';
     }
     
 }

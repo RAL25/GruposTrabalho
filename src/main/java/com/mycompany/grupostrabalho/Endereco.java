@@ -21,16 +21,24 @@ import javax.persistence.Table;
 public class Endereco implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private TipoLogradouro tipoLogradouro;
-    @Column (length = 150)
+    @Column(length = 150)
     private String logradouro;
-    
+
     private Integer numero;
-    @Column (length = 25)
+    @Column(length = 25)
     private String bairro;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public TipoLogradouro getTipoLogradouro() {
         return tipoLogradouro;
@@ -64,24 +72,13 @@ public class Endereco implements Serializable {
         this.bairro = bairro;
     }
 
-    private static final long serialVersionUID = 1L;
-    
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Override
     public String toString() {
-        return "GruposTrabalho.Endereco[ id=" + id + 
-                " TipoLogradouro="+ tipoLogradouro +
-                "  logradouro="+ logradouro +
-                " numero=" + numero +
-                " bairro="+ bairro +"]";
+        return "Endereco{" + "id=" + id + 
+                ", tipoLogradouro=" + tipoLogradouro + 
+                ", logradouro=" + logradouro + 
+                ", numero=" + numero + 
+                ", bairro=" + bairro + '}';
     }
     
 }

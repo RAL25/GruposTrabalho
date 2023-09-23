@@ -2,12 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package com.mycompany.grupostrabalho;
+package Beans;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.time.LocalDate;
-import javax.inject.Inject;
+//import java.time.LocalDate;
+//import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "PessoaServlet", urlPatterns = {"/PessoaServlet"})
 public class PessoaServlet extends HttpServlet {
 
-    @Inject
-    private PessoaBeanLocal pessoaBean;
+//    @Inject
+//    private PessoaBeanLocal pessoaBean;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,15 +36,6 @@ public class PessoaServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            Pessoa pessoa = new Pessoa();
-            
-//            pessoa.setNome("Rian");
-//            pessoa.setEmail("rian@mail.com");
-//            pessoa.setNascimento(LocalDate.of(2001, 10, 29));
-//            pessoa.setIdade();
-            
-            pessoaBean.salvar(pessoa);
-        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -56,7 +47,6 @@ public class PessoaServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet PessoaServlet at " + request.getContextPath() + "</h1>");
             out.println("<p>Operação concluída</p>");
-            out.println("<p>Pessoa: " + pessoa + "</p>");
             out.println("</body>");
             out.println("</html>");
         }

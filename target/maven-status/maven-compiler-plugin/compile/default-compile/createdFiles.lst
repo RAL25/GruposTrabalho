@@ -1,10 +1,11 @@
 com\mycompany\grupostrabalho\Pessoa.class
 com\mycompany\grupostrabalho\Grupo.class
 com\mycompany\grupostrabalho\Telefone.class
+Beans\PessoaBeanLocal.class
 Util\Util.class
-com\mycompany\grupostrabalho\PessoaBean.class
-com\mycompany\grupostrabalho\PessoaBeanLocal.class
+Beans\SalvarDados.class
 com\mycompany\grupostrabalho\Atuacao.class
 com\mycompany\grupostrabalho\TipoLogradouro.class
+Beans\PessoaBean.class
+Beans\PessoaServlet.class
 com\mycompany\grupostrabalho\Endereco.class
-com\mycompany\grupostrabalho\PessoaServlet.class

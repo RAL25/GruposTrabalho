@@ -5,11 +5,16 @@
 package com.mycompany.grupostrabalho;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,18 +24,31 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_grupo")
 public class Grupo implements Serializable {
-    
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (length = 65)
+    @Column(length = 65)
     private String nome;
-    
+
     private Boolean ativo;
 
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name="tbl_pessoa")
+    private Pessoa pessoa;
     
-    public Grupo() {
+    @OneToMany(mappedBy = "grupo",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private List<Atuacao> atuacao;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -41,26 +59,37 @@ public class Grupo implements Serializable {
         this.nome = nome;
     }
 
-    public Grupo(Boolean ativo) {
-        ativo = true;
+    public Boolean getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(Boolean ativo) {
         this.ativo = ativo;
     }
 
-    private static final long serialVersionUID = 1L;
-
-    public Long getId() {
-        return id;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public List<Atuacao> getAtuacao() {
+        return atuacao;
+    }
+
+    public void setAtuacao(List<Atuacao> atuacao) {
+        this.atuacao = atuacao;
     }
 
     @Override
     public String toString() {
-        return "GruposTrabalho.Grupo[ id=" + id +
-                " nome="+ nome +
-                " ativo="+ ativo +"]";
+        return "Grupo{" + "id=" + id + 
+                ", nome=" + nome + 
+                ", ativo=" + ativo + 
+                ", pessoa=" + pessoa + 
+                ", atuacao=" + atuacao + '}';
     }
     
 }

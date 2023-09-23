@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/J2EE/EJB30/SessionLocal.java to edit this template
  */
-package com.mycompany.grupostrabalho;
+package Beans;
 
+import com.mycompany.grupostrabalho.Pessoa;
 import javax.ejb.Local;
 
 /**
@@ -12,7 +13,5 @@ import javax.ejb.Local;
  */
 @Local
 public interface PessoaBeanLocal {
-
-    void salvar(Pessoa pessoa);
-    
+    public void salvar(Pessoa pessoa);
 }
