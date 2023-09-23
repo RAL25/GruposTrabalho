@@ -19,6 +19,9 @@ import javax.persistence.Table;
 @Table(name = "tbl_telefone")
 public class Telefone implements Serializable {
 
+    public Telefone() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -33,6 +33,18 @@ public class SalvarDados {
 //    @Override
     public void popularBanco() {
         // Criação e persistência de objetos
+        Atuacao a1 = new Atuacao();
+        Atuacao a2 = new Atuacao();
+        Atuacao a3 = new Atuacao();
+        Atuacao a4 = new Atuacao();
+        Atuacao a5 = new Atuacao();
+        Atuacao a6 = new Atuacao();
+        Atuacao a7 = new Atuacao();
+        Atuacao a8 = new Atuacao();
+        Atuacao a9 = new Atuacao();
+        Atuacao a10 = new Atuacao();
+        Atuacao a11 = new Atuacao();
+        Atuacao a12 = new Atuacao();
 
         //<editor-fold defaultstate="collapsed" desc="Pessoa1">
         Pessoa pessoa1 = new Pessoa();
@@ -56,7 +68,7 @@ public class SalvarDados {
         p1t2.setNumero(12121212);
         p1t3.setDdd((byte) 13);
         p1t3.setNumero(13131313);
-
+        
         pessoa1.setEndereco(endereco1);
         pessoa1.setTelefones((List<Telefone>) p1t1);
         pessoa1.setTelefones((List<Telefone>) p1t2);
@@ -127,119 +139,117 @@ public class SalvarDados {
 
         
         //<editor-fold defaultstate="collapsed" desc="Grupo1">
-        Grupo grupo1 = new Grupo();
-        Atuacao g1a1 = new Atuacao();
-        Atuacao g1a2 = new Atuacao();
-        Atuacao g1a3 = new Atuacao();
-        Atuacao g1a4 = new Atuacao();
-        Atuacao g1a5 = new Atuacao();
+        Grupo grupo1 = new Grupo();        
 
         grupo1.setNome("Estudo I");
         grupo1.setAtivo(Boolean.FALSE);
         
         grupo1.setLider(pessoa1);
-        grupo1.setMembros((List<Pessoa>)pessoa1);
-        grupo1.setMembros((List<Pessoa>)pessoa2);
-        grupo1.setMembros((List<Pessoa>)pessoa3);
-        grupo1.setMembros((List<Pessoa>)pessoa4);        
-
-        g1a1.setInicio(LocalDate.of(2011, 01, 01));
-        g1a1.setTermino(LocalDate.of(2021, 11, 11));
-        g1a2.setInicio(LocalDate.of(2012, 01, 01));
-        g1a2.setTermino(LocalDate.of(2022, 11, 11));
-        g1a3.setInicio(LocalDate.of(2012, 01, 02));
-        g1a3.setTermino(LocalDate.of(2021, 01, 12));
-        g1a4.setInicio(LocalDate.of(2013, 01, 03));
-        g1a4.setTermino(LocalDate.of(2021, 01, 13));
-        g1a5.setInicio(LocalDate.of(2014, 01, 04));
-        g1a5.setTermino(LocalDate.of(2021, 01, 14));
         
-        grupo1.setAtuacao((List<Atuacao>) g1a1);
-        grupo1.setAtuacao((List<Atuacao>) g1a2);
-        grupo1.setAtuacao((List<Atuacao>) g1a3);
-        grupo1.setAtuacao((List<Atuacao>) g1a1);
-        grupo1.setAtuacao((List<Atuacao>) g1a2);
+        a1.setInicio(LocalDate.of(2011, 01, 01));
+        a1.setTermino(LocalDate.of(2021, 11, 11));
+        a2.setInicio(LocalDate.of(2012, 01, 01));
+        a2.setTermino(LocalDate.of(2022, 11, 11));
+        a3.setInicio(LocalDate.of(2012, 01, 02));
+        a3.setTermino(LocalDate.of(2021, 01, 12));
+        a4.setInicio(LocalDate.of(2013, 01, 03));
+        a4.setTermino(LocalDate.of(2021, 01, 13));
+        a5.setInicio(LocalDate.of(2014, 01, 04));
+        a5.setTermino(LocalDate.of(2021, 01, 14));
+        
+        grupo1.getAtuacao().add(a1);
+        grupo1.getAtuacao().add(a2);
+        grupo1.getAtuacao().add(a3);
+        grupo1.getAtuacao().add(a4);
+        grupo1.getAtuacao().add(a5);
+        
+        pessoa1.getAtuacoes().add(a1);
+        pessoa1.getAtuacoes().add(a2);
+        pessoa2.getAtuacoes().add(a3);
+        pessoa3.getAtuacoes().add(a4);
+        pessoa4.getAtuacoes().add(a5); 
+        
+        pessoa1.getGrupos().add(grupo1);
+        pessoa2.getGrupos().add(grupo1);
+        pessoa3.getGrupos().add(grupo1);
+        pessoa4.getGrupos().add(grupo1);
         //</editor-fold>
 
         //<editor-fold defaultstate="collapsed" desc="Grupo2">
         Grupo grupo2 = new Grupo();
-        Atuacao g2a1 = new Atuacao();
-        Atuacao g2a2 = new Atuacao();
-        Atuacao g2a3 = new Atuacao();
-        Atuacao g2a4 = new Atuacao();
-        Atuacao g2a5 = new Atuacao();
 
         grupo2.setNome("Estudo II");
         grupo2.setAtivo(Boolean.TRUE);
         
-        grupo2.setLider(pessoa2);
-        grupo2.setMembros((List<Pessoa>)pessoa2);
-        grupo2.setMembros((List<Pessoa>)pessoa4);        
+        grupo2.setLider(pessoa2);      
 
-        g2a1.setInicio(LocalDate.of(2012, 01, 02));
-//        g2a1.setTermino(LocalDate.of(2021, 11, 11));
-        g2a2.setInicio(LocalDate.of(2012, 01, 02));
-//        g2a2.setTermino(LocalDate.of(2022, 11, 11));
-
-        grupo2.setAtuacao((List<Atuacao>) g2a1);
-        grupo2.setAtuacao((List<Atuacao>) g2a2);
+        a6.setInicio(LocalDate.of(2012, 01, 02));
+        a7.setInicio(LocalDate.of(2012, 01, 02));
+        
+        grupo2.getAtuacao().add(a6);
+        grupo2.getAtuacao().add(a7);
+        
+        pessoa2.getAtuacoes().add(a6);
+        pessoa4.getAtuacoes().add(a7);
+        
+        pessoa2.getGrupos().add(grupo2);
+        pessoa4.getGrupos().add(grupo2);
         //</editor-fold>
 
         //<editor-fold defaultstate="collapsed" desc="Grupo3">
         Grupo grupo3 = new Grupo();
-        Atuacao g3a1 = new Atuacao();
-        Atuacao g3a2 = new Atuacao();
 
         grupo3.setNome("Estudo III");
         grupo3.setAtivo(Boolean.FALSE);
         
         grupo3.setLider(pessoa3);
-        grupo3.setMembros((List<Pessoa>)pessoa3);
-        grupo3.setMembros((List<Pessoa>)pessoa4);        
-
-        g3a1.setInicio(LocalDate.of(2012, 01, 03));
-        g3a1.setTermino(LocalDate.of(2023, 01, 13));
-        g3a2.setInicio(LocalDate.of(2012, 01, 03));
-        g3a2.setTermino(LocalDate.of(2023, 01, 13));
         
-        grupo3.setAtuacao((List<Atuacao>) g3a1);
-        grupo3.setAtuacao((List<Atuacao>) g3a2);
+        a8.setInicio(LocalDate.of(2012, 01, 03));
+        a8.setTermino(LocalDate.of(2023, 01, 13));
+        a9.setInicio(LocalDate.of(2012, 01, 03));
+        a9.setTermino(LocalDate.of(2023, 01, 13));
+
+        grupo3.getAtuacao().add(a8);
+        grupo3.getAtuacao().add(a9);
+        
+        pessoa3.getAtuacoes().add(a8);
+        pessoa4.getAtuacoes().add(a9);
+        
+        pessoa3.getGrupos().add(grupo3);
+        pessoa4.getGrupos().add(grupo3);
     //</editor-fold>
         
         //<editor-fold defaultstate="collapsed" desc="Grupo4">
         Grupo grupo4 = new Grupo();
-        Atuacao g4a1 = new Atuacao();
-        Atuacao g4a2 = new Atuacao();
-        Atuacao g4a3 = new Atuacao();
 
         grupo4.setNome("Estudo IV");
         grupo4.setAtivo(Boolean.TRUE);
         
-        grupo4.setLider(pessoa2);
-        grupo4.setMembros((List<Pessoa>)pessoa1);
-        grupo4.setMembros((List<Pessoa>)pessoa3);
-        grupo4.setMembros((List<Pessoa>)pessoa4);        
+        grupo4.setLider(pessoa2);      
 
-        g4a1.setInicio(LocalDate.of(2012, 01, 04));
-        g4a1.setTermino(LocalDate.of(2024, 01, 14));
-        g4a2.setInicio(LocalDate.of(2012, 01, 04));
-        g4a2.setTermino(LocalDate.of(2024, 01, 14));
-        g4a3.setInicio(LocalDate.of(2012, 01, 04));
-        g4a3.setTermino(LocalDate.of(2024, 01, 14));
+        a10.setInicio(LocalDate.of(2012, 01, 04));
+        a10.setTermino(LocalDate.of(2024, 01, 14));
+        a11.setInicio(LocalDate.of(2012, 01, 04));
+        a11.setTermino(LocalDate.of(2024, 01, 14));
+        a12.setInicio(LocalDate.of(2012, 01, 04));
+        a12.setTermino(LocalDate.of(2024, 01, 14));
         
-        grupo4.setAtuacao((List<Atuacao>) g4a1);
-        grupo4.setAtuacao((List<Atuacao>) g4a2);
-        grupo4.setAtuacao((List<Atuacao>) g4a3);
+        grupo4.getAtuacao().add(a10);
+        grupo4.getAtuacao().add(a11);
+        grupo4.getAtuacao().add(a12);
+        
+        pessoa2.getAtuacoes().add(a10);
+        pessoa3.getAtuacoes().add(a11);
+        pessoa4.getAtuacoes().add(a12);
+        
+        pessoa2.getGrupos().add(grupo4);
+        pessoa3.getGrupos().add(grupo4);
+        pessoa4.getGrupos().add(grupo4);
 //</editor-fold>
 
         pessoaBean.salvarP(pessoa1);
         pessoaBean.salvarP(pessoa2);
         pessoaBean.salvarP(pessoa3);
         pessoaBean.salvarP(pessoa4);
-        
-        pessoaBean.salvarG(grupo1);
-        pessoaBean.salvarG(grupo2);
-        pessoaBean.salvarG(grupo3);
-        pessoaBean.salvarG(grupo4);
     }
 }

@@ -6,6 +6,7 @@ package com.mycompany.grupostrabalho;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +24,9 @@ import javax.persistence.Table;
 @Table(name = "tbl_atuacao")
 public class Atuacao implements Serializable {
 
+    public Atuacao() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,9 +37,12 @@ public class Atuacao implements Serializable {
 
     @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name="tbl_pessoa")
+    @JsonbTransient
     private Pessoa pessoa;
+    
     @ManyToOne (cascade = CascadeType.ALL)
     @JoinColumn(name="tbl_grupo")
+    @JsonbTransient
     private Grupo grupo;
 
     public Long getId() {
@@ -84,7 +91,7 @@ public class Atuacao implements Serializable {
                 ", inicio=" + inicio + 
                 ", termino=" + termino + 
                 ", pessoa=" + pessoa + 
-                ", grupo=" + grupo + '}';
+                '}';
     }
     
 }

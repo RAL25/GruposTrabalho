@@ -20,6 +20,9 @@ import javax.persistence.Table;
 @Table(name = "tbl_endereco")
 public class Endereco implements Serializable {
 
+    public Endereco() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

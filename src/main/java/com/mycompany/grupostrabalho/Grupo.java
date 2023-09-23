@@ -5,7 +5,9 @@
 package com.mycompany.grupostrabalho;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,6 +27,10 @@ import javax.persistence.Table;
 @Table(name = "tbl_grupo")
 public class Grupo implements Serializable {
 
+    public Grupo() {
+        atuacoes = new ArrayList<>();
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,16 +42,13 @@ public class Grupo implements Serializable {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tbl_pessoa")
+    @JsonbTransient
     private Pessoa lider;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tbl_pessoa")
-    private List<Pessoa> membros;
 
     @OneToMany(mappedBy = "grupo",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<Atuacao> atuacao;
+    private List<Atuacao> atuacoes;
 
     public Long getId() {
         return id;
@@ -79,20 +82,12 @@ public class Grupo implements Serializable {
         this.lider = lider;
     }
 
-    public List<Pessoa> getMembros() {
-        return membros;
-    }
-
-    public void setMembros(List<Pessoa> membros) {
-        this.membros = membros;
-    }
-
     public List<Atuacao> getAtuacao() {
-        return atuacao;
+        return atuacoes;
     }
 
     public void setAtuacao(List<Atuacao> atuacao) {
-        this.atuacao = atuacao;
+        this.atuacoes = atuacao;
     }
 
     @Override
@@ -101,8 +96,7 @@ public class Grupo implements Serializable {
                 + ", nome=" + nome
                 + ", ativo=" + ativo
                 + ", lider=" + lider
-                + ", membros=" + membros
-                + ", atuacao=" + atuacao + '}';
+                + ", atuacao=" + atuacoes + '}';
     }
 
 }

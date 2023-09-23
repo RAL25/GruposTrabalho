@@ -7,6 +7,7 @@ package com.mycompany.grupostrabalho;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,7 +16,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+//import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -28,6 +29,12 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "tbl_pessoa")
 public class Pessoa implements Serializable {
+
+    public Pessoa() {
+        atuacoes = new ArrayList<>();
+        telefones = new ArrayList<>();
+        grupos = new ArrayList<>();
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -58,12 +65,12 @@ public class Pessoa implements Serializable {
     @OneToMany(mappedBy = "pessoa",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
-    private List<Atuacao> atuacao;
+    private List<Atuacao> atuacoes;
 
     @OneToMany(mappedBy = "pessoa",
             cascade = CascadeType.ALL)
-    private List<Grupo> grupo;
-    
+    private List<Grupo> grupos;
+
     public Long getId() {
         return id;
     }
@@ -121,34 +128,33 @@ public class Pessoa implements Serializable {
     }
 
     public List<Atuacao> getAtuacoes() {
-        return atuacao;
+        return atuacoes;
     }
 
     public void setAtuacoes(List<Atuacao> atuacao) {
-        this.atuacao = atuacao;
+        this.atuacoes = atuacao;
     }
 
     public List<Grupo> getGrupos() {
-        return grupo;
+        return grupos;
     }
 
     public void setGrupos(List<Grupo> grupo) {
-        this.grupo = grupo;
+        this.grupos = grupo;
     }
 
     @Override
     public String toString() {
-        return "Pessoa{" + "id=" + id + 
-                ", nome=" + nome + 
-                ", email=" + email + 
-                ", nascimento=" + nascimento + 
-                ", idade=" + idade + 
-                ", endereco=" + endereco + 
-                ", telefones=" + telefones + 
-                ", atuacoes=" + atuacao + 
-                ", grupos=" + grupo + 
-                '}';
+        return "Pessoa{" + "id=" + id
+                + ", nome=" + nome
+                + ", email=" + email
+                + ", nascimento=" + nascimento
+                + ", idade=" + idade
+                + ", endereco=" + endereco
+                + ", telefones=" + telefones
+                + ", atuacoes=" + atuacoes
+                + ", grupos=" + grupos
+                + '}';
     }
-    
-    
+
 }
