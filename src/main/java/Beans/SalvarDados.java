@@ -11,7 +11,7 @@ import com.mycompany.grupostrabalho.Pessoa;
 import com.mycompany.grupostrabalho.Telefone;
 import com.mycompany.grupostrabalho.TipoLogradouro;
 import java.time.LocalDate;
-import java.util.List;
+//import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
@@ -70,9 +70,9 @@ public class SalvarDados {
         p1t3.setNumero(13131313);
         
         pessoa1.setEndereco(endereco1);
-        pessoa1.setTelefones((List<Telefone>) p1t1);
-        pessoa1.setTelefones((List<Telefone>) p1t2);
-        pessoa1.setTelefones((List<Telefone>) p1t3);
+        pessoa1.getTelefones().add(p1t1);
+        pessoa1.getTelefones().add(p1t2);
+        pessoa1.getTelefones().add(p1t3);
         //</editor-fold>
 
         //<editor-fold defaultstate="collapsed" desc="pessoa2">
@@ -93,7 +93,7 @@ public class SalvarDados {
         p2t1.setNumero(22222222);
 
         pessoa2.setEndereco(endereco2);
-        pessoa2.setTelefones((List<Telefone>) p2t1);
+        pessoa2.getTelefones().add(p2t1);
         //</editor-fold>
 
         //<editor-fold defaultstate="collapsed" desc="pessoa3">
@@ -118,9 +118,9 @@ public class SalvarDados {
         Telefone p4t1 = new Telefone();
         Telefone p4t2 = new Telefone();
 
-        pessoa1.setNome("Débora Wendel");
-        pessoa1.setEmail("debora@mail.com");
-        pessoa1.setNascimento(LocalDate.of(2004, 04, 04));
+        pessoa4.setNome("Débora Wendel");
+        pessoa4.setEmail("debora@mail.com");
+        pessoa4.setNascimento(LocalDate.of(2004, 04, 04));
 
         endereco4.setTipoLogradouro(TipoLogradouro.PRACA);
         endereco4.setLogradouro("4");
@@ -132,9 +132,9 @@ public class SalvarDados {
         p4t2.setDdd((byte) 45);
         p4t2.setNumero(45454545);
 
-        pessoa1.setEndereco(endereco1);
-        pessoa1.setTelefones((List<Telefone>) p1t1);
-        pessoa1.setTelefones((List<Telefone>) p1t2);
+        pessoa4.setEndereco(endereco1);
+        pessoa4.getTelefones().add(p4t1);
+        pessoa4.getTelefones().add(p4t2);
         //</editor-fold>
 
         
@@ -156,6 +156,18 @@ public class SalvarDados {
         a4.setTermino(LocalDate.of(2021, 01, 13));
         a5.setInicio(LocalDate.of(2014, 01, 04));
         a5.setTermino(LocalDate.of(2021, 01, 14));
+        
+        a1.setPessoa(pessoa1);
+        a2.setPessoa(pessoa1);
+        a3.setPessoa(pessoa2);
+        a4.setPessoa(pessoa3);
+        a5.setPessoa(pessoa4);
+        
+        a1.setGrupo(grupo1);
+        a2.setGrupo(grupo1);
+        a3.setGrupo(grupo1);
+        a4.setGrupo(grupo1);
+        a5.setGrupo(grupo1);
         
         grupo1.getAtuacao().add(a1);
         grupo1.getAtuacao().add(a2);
@@ -186,6 +198,12 @@ public class SalvarDados {
         a6.setInicio(LocalDate.of(2012, 01, 02));
         a7.setInicio(LocalDate.of(2012, 01, 02));
         
+        a6.setPessoa(pessoa2);
+        a7.setPessoa(pessoa4);
+        
+        a6.setGrupo(grupo2);
+        a7.setGrupo(grupo2);
+        
         grupo2.getAtuacao().add(a6);
         grupo2.getAtuacao().add(a7);
         
@@ -208,6 +226,12 @@ public class SalvarDados {
         a8.setTermino(LocalDate.of(2023, 01, 13));
         a9.setInicio(LocalDate.of(2012, 01, 03));
         a9.setTermino(LocalDate.of(2023, 01, 13));
+        
+        a8.setPessoa(pessoa3);
+        a9.setPessoa(pessoa4);
+        
+        a8.setGrupo(grupo3);
+        a9.setGrupo(grupo3);
 
         grupo3.getAtuacao().add(a8);
         grupo3.getAtuacao().add(a9);
@@ -233,6 +257,14 @@ public class SalvarDados {
         a11.setTermino(LocalDate.of(2024, 01, 14));
         a12.setInicio(LocalDate.of(2012, 01, 04));
         a12.setTermino(LocalDate.of(2024, 01, 14));
+        
+        a10.setPessoa(pessoa2);
+        a11.setPessoa(pessoa3);
+        a12.setPessoa(pessoa4);
+        
+        a10.setGrupo(grupo4);
+        a11.setGrupo(grupo4);
+        a12.setGrupo(grupo4);
         
         grupo4.getAtuacao().add(a10);
         grupo4.getAtuacao().add(a11);

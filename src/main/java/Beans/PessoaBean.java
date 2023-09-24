@@ -26,7 +26,7 @@ public class PessoaBean implements PessoaBeanLocal {
     }
 
     
-    public void salvarG(Grupo grupo) {
-        entityManager.persist(grupo);
-    }
+//    public void salvarG(Grupo grupo) {
+//        entityManager.persist(grupo);
+//    }
 }

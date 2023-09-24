@@ -41,7 +41,7 @@ public class Grupo implements Serializable {
     private Boolean ativo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "tbl_pessoa")
+    @JoinColumn(name = "pessoa_id")
     @JsonbTransient
     private Pessoa lider;
 
@@ -86,7 +86,7 @@ public class Grupo implements Serializable {
         return atuacoes;
     }
 
-    public void setAtuacao(List<Atuacao> atuacao) {
+    public void setAtuacao(ArrayList<Atuacao> atuacao) {
         this.atuacoes = atuacao;
     }
 

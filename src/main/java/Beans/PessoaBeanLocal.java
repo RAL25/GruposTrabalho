@@ -15,5 +15,5 @@ import javax.ejb.Local;
 @Local
 public interface PessoaBeanLocal {
     public void salvarP(Pessoa pessoa);
-    public void salvarG(Grupo grupo);
+//    public void salvarG(Grupo grupo);
 }

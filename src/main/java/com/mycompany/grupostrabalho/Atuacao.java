@@ -30,18 +30,18 @@ public class Atuacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private LocalDate inicio;
 
     private LocalDate termino;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name="tbl_pessoa")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "pessoa_id")
     @JsonbTransient
     private Pessoa pessoa;
-    
-    @ManyToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name="tbl_grupo")
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "grupo_id")
     @JsonbTransient
     private Grupo grupo;
 
@@ -87,11 +87,12 @@ public class Atuacao implements Serializable {
 
     @Override
     public String toString() {
-        return "Atuacao{" + "id=" + id + 
-                ", inicio=" + inicio + 
-                ", termino=" + termino + 
-                ", pessoa=" + pessoa + 
-                '}';
+        return "Atuacao{" + "id=" + id
+                + ", inicio=" + inicio
+                + ", termino=" + termino
+                + ", pessoa=" + pessoa
+                + ", grupo=" + grupo
+                + '}';
     }
-    
+
 }
