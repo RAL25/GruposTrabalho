@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,10 +18,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.persistence.Transient;
 
 /**
@@ -28,7 +27,6 @@ import javax.persistence.Transient;
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
 @Entity
-@Table(name = "tbl_pessoa")
 public class Pessoa implements Serializable {
 
     public Pessoa() {
@@ -59,7 +57,8 @@ public class Pessoa implements Serializable {
             orphanRemoval = true)
     private Endereco endereco;
 
-    @OneToMany(cascade = CascadeType.ALL,
+    @OneToMany(fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
             orphanRemoval = true)
     @JoinColumn(name = "pessoa_id")
     private List<Telefone> telefones;
@@ -67,10 +66,12 @@ public class Pessoa implements Serializable {
     @OneToMany(mappedBy = "pessoa",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
+    @JsonbTransient
     private List<Atuacao> atuacoes;
 
     @OneToMany(mappedBy = "lider",
             cascade = CascadeType.ALL)
+    @JsonbTransient
     private List<Grupo> grupos;
 
     public Long getId() {

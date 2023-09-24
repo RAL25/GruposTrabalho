@@ -10,14 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
 @Entity
-@Table(name = "tbl_endereco")
 public class Endereco implements Serializable {
 
     public Endereco() {

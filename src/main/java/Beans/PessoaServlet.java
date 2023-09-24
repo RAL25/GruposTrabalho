@@ -4,8 +4,15 @@
  */
 package Beans;
 
+import Util.Util;
+import com.mycompany.grupostrabalho.Pessoa;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 //import java.time.LocalDate;
 //import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -21,9 +28,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "PessoaServlet", urlPatterns = {"/PessoaServlet"})
 public class PessoaServlet extends HttpServlet {
 
-//    @Inject
-//    private PessoaBeanLocal pessoaBean;
-    
+    @Inject
+    private PessoaBeanLocal pessoaBean;
+
+//    @PersistenceContext
+//    private EntityManager entityManager;
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -33,22 +43,37 @@ public class PessoaServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PessoaServlet</title>");            
+            out.println("<title>Servlet PessoaServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet PessoaServlet at " + request.getContextPath() + "</h1>");
-            out.println("<p>Operação concluída</p>");
+            out.println("<p>Teste dos Querys</p>");
             out.println("</body>");
             out.println("</html>");
+            //--
+            out.println("<h2>Objeto toJson</h2>");
+//            out.println("<pre class=\"high\">"
+//                                        + Util.toJson(pessoa1)
+//                    + "</pre>");
+            //--
+//            out.println("<pre class=\"high\">"
+//                                        + Util.toJson(pessoa2)
+//                    + "</pre>");
+            //--
+            out.println("<h2>findAllPessoa</h2>");
+            out.println("<pre class=\"high\">"
+                    + Util.toJson(pessoaBean.findAllPessoa())
+                    + "</pre>");
         }
     }
 

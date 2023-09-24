@@ -17,14 +17,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 /**
  *
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
 @Entity
-@Table(name = "tbl_grupo")
 public class Grupo implements Serializable {
 
     public Grupo() {
@@ -48,6 +46,7 @@ public class Grupo implements Serializable {
     @OneToMany(mappedBy = "grupo",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
+    @JsonbTransient
     private List<Atuacao> atuacoes;
 
     public Long getId() {

@@ -14,14 +14,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 /**
  *
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
 @Entity
-@Table(name = "tbl_atuacao")
 public class Atuacao implements Serializable {
 
     public Atuacao() {

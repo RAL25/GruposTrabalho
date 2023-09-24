@@ -6,6 +6,7 @@ package Beans;
 
 import com.mycompany.grupostrabalho.Grupo;
 import com.mycompany.grupostrabalho.Pessoa;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -15,5 +16,8 @@ import javax.ejb.Local;
 @Local
 public interface PessoaBeanLocal {
     public void salvarP(Pessoa pessoa);
-//    public void salvarG(Grupo grupo);
+    
+    public List<Pessoa> findAllPessoa();
+    
+    public Pessoa findPessoaByIdQuery(Long id);
 }
