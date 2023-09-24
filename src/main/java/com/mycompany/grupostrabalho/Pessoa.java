@@ -61,7 +61,7 @@ public class Pessoa implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL,
             orphanRemoval = true)
-    @JoinColumn(name = "telefone_id")
+    @JoinColumn(name = "pessoa_id")
     private List<Telefone> telefones;
 
     @OneToMany(mappedBy = "pessoa",
