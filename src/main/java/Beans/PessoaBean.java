@@ -70,4 +70,27 @@ public class PessoaBean implements PessoaBeanLocal {
         return entityManager.createNamedQuery("Pessoa.findNamePessoa", String.class).getResultList();
     }
     
+    @Override
+    public List<Pessoa>  findNameEndPessoaQuery() {
+        Query query = entityManager
+                .createQuery(
+                        "SELECT p.nome, p.endereco"
+                                + " FROM Pessoa p");
+        // Parâmetro indexado
+//        query.setParameter(1, id);
+        return (List<Pessoa>)  query.getResultList();
+    } 
+    
+    @Override
+    public List<Pessoa> findNameEndPessoaTyped() {
+        TypedQuery<Pessoa> typedQuery = entityManager.
+                createQuery("SELECT p.nome, p.endereco FROM Pessoa p", Pessoa.class);
+        return (List<Pessoa>) typedQuery.getResultList();
+    }
+    
+    @Override
+    public List<Pessoa> findNameEndPessoaNamed() {
+        return entityManager.createNamedQuery("Pessoa.findNamePessoa", Pessoa.class).getResultList();
+    }
+    
 }

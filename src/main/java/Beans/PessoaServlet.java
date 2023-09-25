@@ -67,19 +67,34 @@ public class PessoaServlet extends HttpServlet {
 //                    + Util.toJson(pessoaBean.findAllPessoaNamed())
 //                    + "</pre>");
             //--
-            out.println("<h2>Consulta 2.A: Quais os nomes das pessoas? Por meio de Query</h2>");
+//            out.println("<h2>Consulta 2.A: Quais os nomes das pessoas? Por meio de Query</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findNamePessoaQuery())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 2.B: Quais os nomes das pessoas? Por meio de TypedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findNamePessoaTyped())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 2.C: Quais os nomes das pessoas? Por meio de NamedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findNamePessoaNamed())
+//                    + "</pre>");
+            //--
+            out.println("<h2>Consulta 3.A: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de Query</h2>");
             out.println("<pre class=\"high\">"
-                    + Util.toJson(pessoaBean.findNamePessoaQuery())
+                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
                     + "</pre>");
             //--
-            out.println("<h2>Consulta 2.B: Quais os nomes das pessoas? Por meio de TypedQuery</h2>");
+            out.println("<h2>Consulta 3.B: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de TypedQuery</h2>");
             out.println("<pre class=\"high\">"
-                    + Util.toJson(pessoaBean.findNamePessoaTyped())
+                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
                     + "</pre>");
             //--
-            out.println("<h2>Consulta 2.C: Quais os nomes das pessoas? Por meio de NamedQuery</h2>");
+            out.println("<h2>Consulta 3.C: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de NamedQuery</h2>");
             out.println("<pre class=\"high\">"
-                    + Util.toJson(pessoaBean.findNamePessoaNamed())
+                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
                     + "</pre>");
         }
     }

@@ -79,6 +79,7 @@ public class Pessoa implements Serializable {
             mappedBy = "pessoa",
             cascade = CascadeType.ALL)
 //            fetch = FetchType.EAGER)
+    //Dependencia para lazy collection - hibernate
     @LazyCollection(LazyCollectionOption.FALSE)
 //            orphanRemoval = true)
 //    @JsonbTransient

@@ -27,4 +27,10 @@ public interface PessoaBeanLocal {
     public List<String> findNamePessoaTyped();
     
     public List<String> findNamePessoaNamed();
+    
+    public List<Pessoa>  findNameEndPessoaQuery();
+    
+    public List<Pessoa> findNameEndPessoaTyped();
+    
+    public List<Pessoa> findNameEndPessoaNamed();
 }
