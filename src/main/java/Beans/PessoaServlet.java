@@ -5,16 +5,9 @@
 package Beans;
 
 import Util.Util;
-import com.mycompany.grupostrabalho.Pessoa;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-//import java.time.LocalDate;
-//import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,15 +18,13 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
-@WebServlet(name = "PessoaServlet", urlPatterns = {"/PessoaServlet"})
-public class PessoaServlet extends HttpServlet {
 
+@WebServlet(name = "PessoaServlet", urlPatterns = {"/Relatorios"})
+public class PessoaServlet extends HttpServlet {
+    
     @Inject
     private PessoaBeanLocal pessoaBean;
-
-//    @PersistenceContext
-//    private EntityManager entityManager;
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -43,7 +34,6 @@ public class PessoaServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -53,26 +43,43 @@ public class PessoaServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PessoaServlet</title>");
+//            out.println("<title>Servlet PessoaServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet PessoaServlet at " + request.getContextPath() + "</h1>");
-            out.println("<p>Teste dos Querys</p>");
+            out.println("<p>Desenvolvimento Web</p>");
+            out.println("<h1>Estudo Dirigido: Jakarta Persistence Query Language</h1>");
+            out.println("<a href=\"/GruposTrabalho-1.0\">Voltar</a>");
             out.println("</body>");
             out.println("</html>");
             //--
-            out.println("<h2>Objeto toJson</h2>");
+//            out.println("<h2>Consulta 1.A: Quais as pessoas (dados completos) cadastradas? Por meio de Query</h2>");
 //            out.println("<pre class=\"high\">"
-//                                        + Util.toJson(pessoa1)
+//                    + Util.toJson(pessoaBean.findAllPessoa())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 1.B: Quais as pessoas (dados completos) cadastradas? Por meio de TypedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findAllPessoaTyped())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 1.C: Quais as pessoas (dados completos) cadastradas? Por meio de NamedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findAllPessoaNamed())
 //                    + "</pre>");
             //--
-//            out.println("<pre class=\"high\">"
-//                                        + Util.toJson(pessoa2)
-//                    + "</pre>");
-            //--
-            out.println("<h2>findAllPessoa</h2>");
+            out.println("<h2>Consulta 2.A: Quais os nomes das pessoas? Por meio de Query</h2>");
             out.println("<pre class=\"high\">"
-                    + Util.toJson(pessoaBean.findAllPessoa())
+                    + Util.toJson(pessoaBean.findNamePessoaQuery())
+                    + "</pre>");
+            //--
+            out.println("<h2>Consulta 2.B: Quais os nomes das pessoas? Por meio de TypedQuery</h2>");
+            out.println("<pre class=\"high\">"
+                    + Util.toJson(pessoaBean.findNamePessoaTyped())
+                    + "</pre>");
+            //--
+            out.println("<h2>Consulta 2.C: Quais os nomes das pessoas? Por meio de NamedQuery</h2>");
+            out.println("<pre class=\"high\">"
+                    + Util.toJson(pessoaBean.findNamePessoaNamed())
                     + "</pre>");
         }
     }

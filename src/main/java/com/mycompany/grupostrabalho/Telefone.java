@@ -17,9 +17,6 @@ import javax.persistence.Id;
 @Entity
 public class Telefone implements Serializable {
 
-    public Telefone() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -27,6 +24,9 @@ public class Telefone implements Serializable {
     private Byte ddd;
 
     private Integer numero;
+    
+    public Telefone() {
+    }
 
     public Long getId() {
         return id;

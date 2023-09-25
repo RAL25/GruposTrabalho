@@ -132,7 +132,7 @@ public class SalvarDados {
         p4t2.setDdd((byte) 45);
         p4t2.setNumero(45454545);
 
-        pessoa4.setEndereco(endereco1);
+        pessoa4.setEndereco(endereco4);
         pessoa4.getTelefones().add(p4t1);
         pessoa4.getTelefones().add(p4t2);
         //</editor-fold>

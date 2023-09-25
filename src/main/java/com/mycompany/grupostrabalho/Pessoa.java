@@ -18,22 +18,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
  * @author Rian Alves Leal <ral2 at aluno.ifnmg.edu.br>
  */
 @Entity
+//<editor-fold defaultstate="collapsed" desc="NamedQuerys">
+@NamedQueries({
+    @NamedQuery(
+            name = "Pessoa.findAll",
+            query = "SELECT p "
+            + "FROM Pessoa p"),
+    @NamedQuery(
+            name = "Pessoa.findNamePessoa",
+            query = "SELECT DISTINCT p.nome"
+                    + " FROM Pessoa p")
+})
+//</editor-fold>
 public class Pessoa implements Serializable {
-
-    public Pessoa() {
-        atuacoes = new ArrayList<>();
-        telefones = new ArrayList<>();
-        grupos = new ArrayList<>();
-    }
 
     private static final long serialVersionUID = 1L;
 
@@ -52,27 +62,40 @@ public class Pessoa implements Serializable {
     @Transient
     private Byte idade;
 
-    @OneToOne(fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
+    @OneToOne(
+            cascade = CascadeType.ALL)
+//            fetch = FetchType.EAGER)
+//            orphanRemoval = true)
     private Endereco endereco;
 
-    @OneToMany(fetch = FetchType.EAGER,
+    @OneToMany(
             cascade = CascadeType.ALL,
-            orphanRemoval = true)
+            fetch = FetchType.EAGER)
+//            orphanRemoval = true)
     @JoinColumn(name = "pessoa_id")
     private List<Telefone> telefones;
 
-    @OneToMany(mappedBy = "pessoa",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    @JsonbTransient
+    @OneToMany(
+            mappedBy = "pessoa",
+            cascade = CascadeType.ALL)
+//            fetch = FetchType.EAGER)
+    @LazyCollection(LazyCollectionOption.FALSE)
+//            orphanRemoval = true)
+//    @JsonbTransient
     private List<Atuacao> atuacoes;
 
-    @OneToMany(mappedBy = "lider",
+    @OneToMany(
+            mappedBy = "lider",
             cascade = CascadeType.ALL)
+//            fetch = FetchType.EAGER)
     @JsonbTransient
     private List<Grupo> grupos;
+    
+    public Pessoa() {
+        this.atuacoes = new ArrayList<>();
+        this.telefones = new ArrayList<>();
+        this.grupos = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;

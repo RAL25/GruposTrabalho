@@ -11,6 +11,7 @@ import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,10 +26,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Grupo implements Serializable {
 
-    public Grupo() {
-        atuacoes = new ArrayList<>();
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,16 +35,23 @@ public class Grupo implements Serializable {
 
     private Boolean ativo;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @OneToMany(
+            mappedBy = "grupo",
+            cascade = CascadeType.ALL)
+//            orphanRemoval = true)
+//    @JsonbTransient
+    private List<Atuacao> atuacoes;
+    
+    @ManyToOne/*(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)*/
     @JoinColumn(name = "pessoa_id")
     @JsonbTransient
     private Pessoa lider;
-
-    @OneToMany(mappedBy = "grupo",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true)
-    @JsonbTransient
-    private List<Atuacao> atuacoes;
+    
+    public Grupo() {
+        this.atuacoes = new ArrayList<>();
+    }
 
     public Long getId() {
         return id;

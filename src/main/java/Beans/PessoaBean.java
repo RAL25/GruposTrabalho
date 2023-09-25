@@ -10,6 +10,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -34,14 +35,39 @@ public class PessoaBean implements PessoaBeanLocal {
 //        return q.getResultList();
     }
     
-        @Override
-    public Pessoa findPessoaByIdQuery(Long id) {
+    @Override
+    public List<Pessoa> findAllPessoaTyped() {
+        TypedQuery<Pessoa> typedQuery = entityManager.
+                createQuery("SELECT p FROM Pessoa p", Pessoa.class);
+        return (List<Pessoa>) typedQuery.getResultList();
+    }
+    
+    @Override
+    public List<Pessoa> findAllPessoaNamed() {
+        return entityManager.createNamedQuery("Pessoa.findAll", Pessoa.class).getResultList();
+    }
+    
+    @Override
+    public List<Pessoa>  findNamePessoaQuery() {
         Query query = entityManager
                 .createQuery(
-                        "select p from jpqlPessoa p "
-                        + "where p.id = ?1");
+                        "SELECT DISTINCT p.nome  "
+                                + "FROM Pessoa p");
         // Parâmetro indexado
-        query.setParameter(1, id);
-        return (Pessoa) query.getSingleResult();
+//        query.setParameter(1, id);
+        return (List<Pessoa>)  query.getResultList();
+    } 
+    
+    @Override
+    public List<String> findNamePessoaTyped() {
+        TypedQuery<String> typedQuery = entityManager.
+                createQuery("SELECT p.nome FROM Pessoa p", String.class);
+        return (List<String>) typedQuery.getResultList();
     }
+    
+    @Override
+    public List<String> findNamePessoaNamed() {
+        return entityManager.createNamedQuery("Pessoa.findNamePessoa", String.class).getResultList();
+    }
+    
 }

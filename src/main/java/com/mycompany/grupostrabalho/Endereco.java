@@ -18,9 +18,6 @@ import javax.persistence.Id;
 @Entity
 public class Endereco implements Serializable {
 
-    public Endereco() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,6 +29,9 @@ public class Endereco implements Serializable {
     private Integer numero;
     @Column(length = 25)
     private String bairro;
+    
+    public Endereco() {
+    }
 
     public Long getId() {
         return id;

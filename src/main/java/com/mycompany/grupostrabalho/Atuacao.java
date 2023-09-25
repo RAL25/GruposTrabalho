@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,9 +23,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Atuacao implements Serializable {
 
-    public Atuacao() {
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,15 +31,22 @@ public class Atuacao implements Serializable {
 
     private LocalDate termino;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(
+            cascade = CascadeType.ALL)
+//            fetch = FetchType.EAGER)
     @JoinColumn(name = "pessoa_id")
     @JsonbTransient
     private Pessoa pessoa;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(
+            cascade = CascadeType.ALL)
+//            fetch = FetchType.EAGER)
     @JoinColumn(name = "grupo_id")
     @JsonbTransient
     private Grupo grupo;
+    
+    public Atuacao() {
+    }
 
     public Long getId() {
         return id;
