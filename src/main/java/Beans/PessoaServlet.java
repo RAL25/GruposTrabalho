@@ -81,20 +81,50 @@ public class PessoaServlet extends HttpServlet {
 //            out.println("<pre class=\"high\">"
 //                    + Util.toJson(pessoaBean.findNamePessoaNamed())
 //                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 3.A: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de Query</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 3.B: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de TypedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 3.C: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de NamedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 4.A: Quais pessoas (dados completos) moram em avenidas? Por meio de Query</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findPessoaAvenidaQuery())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 4.B: Quais pessoas (dados completos) moram em avenidas? Por meio de TypedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findPessoaAvenidaTyped())
+//                    + "</pre>");
+//            //--
+//            out.println("<h2>Consulta 4.C: Quais pessoas (dados completos) moram em avenidas? Por meio de NamedQuery</h2>");
+//            out.println("<pre class=\"high\">"
+//                    + Util.toJson(pessoaBean.findPessoaAvenidaNamed())
+//                    + "</pre>");
             //--
-            out.println("<h2>Consulta 3.A: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de Query</h2>");
+            out.println("<h2>Consulta 5.A: Quais pessoas (dados completos) não moram em praças? Por meio de Query</h2>");
             out.println("<pre class=\"high\">"
-                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
+                    + Util.toJson(pessoaBean.findPessoaNotPracaQuery())
                     + "</pre>");
             //--
-            out.println("<h2>Consulta 3.B: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de TypedQuery</h2>");
+            out.println("<h2>Consulta 5.B: Quais pessoas (dados completos) não moram em praças? Por meio de TypedQuery</h2>");
             out.println("<pre class=\"high\">"
-                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
+                    + Util.toJson(pessoaBean.findPessoaNotPracaTyped())
                     + "</pre>");
             //--
-            out.println("<h2>Consulta 3.C: Quais as pessoas (nome) e seus respectivos endereços (dados completos)? Por meio de NamedQuery</h2>");
+            out.println("<h2>Consulta 5.C: Quais pessoas (dados completos) não moram em praças? Por meio de NamedQuery</h2>");
             out.println("<pre class=\"high\">"
-                    + Util.toJson(pessoaBean.findNameEndPessoaQuery())
+                    + Util.toJson(pessoaBean.findPessoaNotPracaNamed())
                     + "</pre>");
         }
     }

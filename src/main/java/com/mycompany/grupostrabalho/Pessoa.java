@@ -35,12 +35,19 @@ import org.hibernate.annotations.LazyCollectionOption;
 @NamedQueries({
     @NamedQuery(
             name = "Pessoa.findAll",
-            query = "SELECT p "
-            + "FROM Pessoa p"),
+            query = "SELECT p FROM Pessoa p"),
     @NamedQuery(
             name = "Pessoa.findNamePessoa",
-            query = "SELECT DISTINCT p.nome"
-                    + " FROM Pessoa p")
+            query = "SELECT DISTINCT p.nome FROM Pessoa p"),
+    @NamedQuery(
+            name = "Pessoa.findNameEndPessoa",
+            query = "SELECT p.nome, p.endereco FROM Pessoa p"),
+    @NamedQuery(
+            name = "Pessoa.findPessoaAvenida",
+            query = "SELECT P FROM Pessoa p WHERE p.endereco.tipoLogradouro = 1"),
+    @NamedQuery(
+            name = "Pessoa.findPessoaNotPraca",
+            query = "SELECT P FROM Pessoa p WHERE p.endereco.tipoLogradouro = 1"),
 })
 //</editor-fold>
 public class Pessoa implements Serializable {
