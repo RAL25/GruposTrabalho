@@ -23,8 +23,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
-import org.hibernate.annotations.LazyCollection;
-import org.hibernate.annotations.LazyCollectionOption;
+//import org.hibernate.annotations.LazyCollection;
+//import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
@@ -87,7 +87,7 @@ public class Pessoa implements Serializable {
             cascade = CascadeType.ALL)
 //            fetch = FetchType.EAGER)
     //Dependencia para lazy collection - hibernate
-    @LazyCollection(LazyCollectionOption.FALSE)
+//    @LazyCollection(LazyCollectionOption.FALSE)
 //            orphanRemoval = true)
 //    @JsonbTransient
     private List<Atuacao> atuacoes;
