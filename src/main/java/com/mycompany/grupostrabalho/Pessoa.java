@@ -23,8 +23,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
-//import org.hibernate.annotations.LazyCollection;
-//import org.hibernate.annotations.LazyCollectionOption;
 
 /**
  *
@@ -48,6 +46,9 @@ import javax.persistence.Transient;
     @NamedQuery(
             name = "Pessoa.findPessoaNotPraca",
             query = "SELECT P FROM Pessoa p WHERE p.endereco.tipoLogradouro = 1"),
+    @NamedQuery(
+            name = "Pessoas.findNomeTelefones",
+            query = "SELECT p.nome, t FROM Pessoa p JOIN p.telefones t")
 })
 //</editor-fold>
 public class Pessoa implements Serializable {
@@ -70,41 +71,34 @@ public class Pessoa implements Serializable {
     private Byte idade;
 
     @OneToOne(
-            cascade = CascadeType.ALL)
-//            fetch = FetchType.EAGER)
-//            orphanRemoval = true)
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     private Endereco endereco;
 
     @OneToMany(
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
-//            orphanRemoval = true)
     @JoinColumn(name = "pessoa_id")
     private List<Telefone> telefones;
 
     @OneToMany(
             mappedBy = "pessoa",
             cascade = CascadeType.ALL)
-//            fetch = FetchType.EAGER)
-    //Dependencia para lazy collection - hibernate
-//    @LazyCollection(LazyCollectionOption.FALSE)
-//            orphanRemoval = true)
-//    @JsonbTransient
     private List<Atuacao> atuacoes;
 
     @OneToMany(
             mappedBy = "lider",
             cascade = CascadeType.ALL)
-//            fetch = FetchType.EAGER)
     @JsonbTransient
     private List<Grupo> grupos;
-    
+
     public Pessoa() {
         this.atuacoes = new ArrayList<>();
         this.telefones = new ArrayList<>();
         this.grupos = new ArrayList<>();
     }
 
+    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public Long getId() {
         return id;
     }
@@ -176,6 +170,7 @@ public class Pessoa implements Serializable {
     public void setGrupos(List<Grupo> grupo) {
         this.grupos = grupo;
     }
+    //</editor-fold>
 
     @Override
     public String toString() {

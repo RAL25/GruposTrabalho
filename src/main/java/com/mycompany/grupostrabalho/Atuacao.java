@@ -32,15 +32,15 @@ public class Atuacao implements Serializable {
     private LocalDate termino;
 
     @ManyToOne(
-            cascade = CascadeType.ALL)
-//            fetch = FetchType.EAGER)
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "pessoa_id")
     @JsonbTransient
     private Pessoa pessoa;
 
     @ManyToOne(
-            cascade = CascadeType.ALL)
-//            fetch = FetchType.EAGER)
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "grupo_id")
     @JsonbTransient
     private Grupo grupo;

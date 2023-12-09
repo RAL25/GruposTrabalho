@@ -5,6 +5,7 @@
 package com.mycompany.grupostrabalho;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,11 +21,12 @@ public class Telefone implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @Column
     private Byte ddd;
-
+    @Column
     private Integer numero;
-    
+
+    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public Telefone() {
     }
 
@@ -51,12 +53,13 @@ public class Telefone implements Serializable {
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
+    //</editor-fold>
 
     @Override
     public String toString() {
-        return "Telefone{" + "id=" + id + 
-                ", ddd=" + ddd + 
-                ", numero=" + numero + '}';
+        return "Telefone{" + "id=" + id
+                + ", ddd=" + ddd
+                + ", numero=" + numero + '}';
     }
-    
+
 }

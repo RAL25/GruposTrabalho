@@ -29,7 +29,8 @@ public class Endereco implements Serializable {
     private Integer numero;
     @Column(length = 25)
     private String bairro;
-    
+
+    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public Endereco() {
     }
 
@@ -72,14 +73,15 @@ public class Endereco implements Serializable {
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
+    //</editor-fold>
 
     @Override
     public String toString() {
-        return "Endereco{" + "id=" + id + 
-                ", tipoLogradouro=" + tipoLogradouro + 
-                ", logradouro=" + logradouro + 
-                ", numero=" + numero + 
-                ", bairro=" + bairro + '}';
+        return "Endereco{" + "id=" + id
+                + ", tipoLogradouro=" + tipoLogradouro
+                + ", logradouro=" + logradouro
+                + ", numero=" + numero
+                + ", bairro=" + bairro + '}';
     }
-    
+
 }

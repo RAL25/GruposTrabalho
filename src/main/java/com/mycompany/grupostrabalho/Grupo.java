@@ -32,23 +32,18 @@ public class Grupo implements Serializable {
 
     @Column(length = 65)
     private String nome;
+    @Column
+    private Boolean ativo  = true;
 
-    private Boolean ativo;
-
-    @OneToMany(
-            mappedBy = "grupo",
-            cascade = CascadeType.ALL)
-//            orphanRemoval = true)
-//    @JsonbTransient
+    @OneToMany(mappedBy = "grupo")
     private List<Atuacao> atuacoes;
-    
-    @ManyToOne/*(
-            cascade = CascadeType.ALL,
-            fetch = FetchType.EAGER)*/
-    @JoinColumn(name = "pessoa_id")
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "lider_id")
     @JsonbTransient
     private Pessoa lider;
-    
+
+    //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public Grupo() {
         this.atuacoes = new ArrayList<>();
     }
@@ -92,6 +87,7 @@ public class Grupo implements Serializable {
     public void setAtuacao(ArrayList<Atuacao> atuacao) {
         this.atuacoes = atuacao;
     }
+    //</editor-fold>
 
     @Override
     public String toString() {
